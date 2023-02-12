@@ -6,7 +6,7 @@ import { validate } from "./validation.js"
  */
 export const promptConfirmation = (message) => {
     while (true) {
-        const userInput = prompt(message).trim().toLowerCase()
+        const userInput = prompt(`${message} [yes/no]:`).trim().toLowerCase()
         if (userInput === "yes") return true
         else if (userInput === "no") return false
         else console.log("Invalid input! Please try again...")

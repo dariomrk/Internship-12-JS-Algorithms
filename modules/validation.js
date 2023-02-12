@@ -11,19 +11,35 @@ export const validate = (input, validationPredicates) =>
  * Contains common validation predicates
  */
 export const commonValidationPredicates = {
+    /**
+     * @param {any} input Value to check
+     * @returns {boolean} Returns true if the provided value is not undefined or null
+     */
     nonNullOrUndefined: (input) => {
         return input !== undefined && input !== null
     },
+    /**
+     * @param {string} input Value to check
+     * @returns Returns true if the provided value is not an empty string
+     */
     nonEmptyString: (input) => {
         if (typeof input !== "string") return false
         return input.trim() !== ""
     },
+    /**
+     * @param {number | string} input Value to check
+     * @returns Returns true if the provided value is numeric
+     */
     isNumeric: (input) => {
-        if (typeof input !== "string") return false
+        if (typeof input !== "number" && typeof input !== "string") return false
         return !isNaN(input) && !isNaN(parseFloat(input))
     },
+    /**
+     * @param {number | string} input Value to check
+     * @returns Returns true if the provided value is greater than 0
+     */
     isPositive: (input) => {
-        if (typeof input !== "number") return false
+        if (typeof input !== "string" && typeof input !== "number") return false
         return input > 0
     }
 }
